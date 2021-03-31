@@ -8,6 +8,7 @@ const cors = require('cors');
 const router = require('./routes.js');
 
 // Middleware Execution
+app.use(express.static(__dirname + '/../client/dist'));
 app.use(express.json());
 
 // Configure Cors policy

@@ -20,13 +20,13 @@ const queries = {
   }
 }
 
-queries.getTattoo(1, (err, results) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(results);
-  }
-});;
+// queries.getTattoo(1, (err, results) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log(results);
+//   }
+// });;
 
 module.exports.queries = queries;
 // /Users/taylorsmart/engineering/mvp/ink/database/index.js
