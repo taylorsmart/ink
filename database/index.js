@@ -3,11 +3,11 @@ const { Pool, Client } = require('pg')
 //Connect to db
 const client = new Client({
   host: 'localhost',
-  user: 'ubuntu',
+  user: 'super',
   password: '',
   database: 'ink',
 })
 
 client.connect()
 
-module.exports = db;
+module.exports = client;

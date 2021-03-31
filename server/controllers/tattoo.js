@@ -4,9 +4,9 @@ const query = models.overview.queries;
 
 module.exports = {
   getTattoo: (req, res) => {
-    const data = [offset,page] ;
+    const id = req.params.id ;
     console.log(`Received Get request`);
-    query.getTattoo(data, (err, results) => {
+    query.getTattoo(id, (err, results) => {
       if (err) {
         console.log(err);
         console.log(err)

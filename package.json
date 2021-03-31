@@ -8,7 +8,6 @@
     "create-db": "psql -U super -d ink < schema.sql",
     "fake-data": "node fakerDataGen.js",
     "start": "nodemon server/index.js -p 3000",
-    "react-dev": "webpack -d --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
