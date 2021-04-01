@@ -7,8 +7,27 @@ import TattooContainer from "./components/tattooContainer.jsx"
 
 
 const App = () => {
+  const [tattooId, setTattooId] = useState(1)
 
+  const handleLeft = () => {
+    console.log('clicked')
+    let tempVal = tattooId;
+    if(tattooId > 0) { //this will be the dynamic number - right now hardcoded with dummy data
+      tempVal--
+      setTattooId(tempVal)
+    }
+    console.log(tattooId);
+  }
 
+  const handleRight = () => {
+    console.log('clicked')
+    let tempVal = tattooId;
+    if(tattooId < 15) { //this will be the dynamic number - right now hardcoded with dummy data
+      tempVal++
+      setTattooId(tempVal)
+    }
+    console.log(tattooId);
+  }
 
   return (
     <div>
@@ -28,17 +47,20 @@ const App = () => {
         </Col>
       </Row>
       <Row>
-        <Col xs={1} md={1}>
+        <Col xs={1} md={1} className="hover-click border-right" onClick={handleLeft} >
+          <div className="hover-click" ></div>
         </Col>
+        <vr/>
         <Col xs={10} md={10}>
             <div className="bg-light fullheightcol">
               <hr />
               <div className="tattoo-primary">
-              <TattooContainer className="Container" />
+              <TattooContainer tattooId={tattooId} className="Container" />
               </div>
             </div> 
         </Col>
-        <Col xs={1} md={1}>
+        <Col xs={1} md={1} className="hover-click  border-left" onClick={handleRight}>
+          <div className="hover-click"></div>
         </Col>
     </Row>
     </div>

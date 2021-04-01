@@ -5,7 +5,7 @@ import {
 } from 'react-bootstrap';
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 
-const TattooCard = () => {
+const TattooCard = ({ tattooId }) => {
   const [photoCard, setPhotoCard] = useState({})
   const [shopInfo, setShopInfo] = useState({})
   const [artistInfo, setArtistInfo] = useState({})
@@ -71,24 +71,28 @@ const TattooCard = () => {
   }
 
   useEffect(() => {
-    fetchCard(1);
+    fetchCard(tattooId);
   },[])
+
+  useEffect(() => {
+    fetchCard(tattooId);
+  },[tattooId])
 
 
   return (
-    <div id="tattoo-card">
+    <div id="tattoo-card shadow-sm">
       {/* <Card style={styles.card}> */}
-      <Card >
-        <Card.Body>
-          <Card.Title>{photoCard.name}</Card.Title>
+      <Card className="text-white bg-dark">
+        <Card.Body className="bg-secondary">
+          <Card.Title className="text-uppercase">{photoCard.name}</Card.Title>
           <Card.Text>
             {photoCard.story}
           </Card.Text>
         </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroupItem className="list-group">{`City: ${photoCard.location}`}</ListGroupItem>
-          <ListGroupItem className="list-group">{`Shop Name: ${shopInfo.name}`}</ListGroupItem>
-          <ListGroupItem className="list-group">{`Artist Name: ${artistInfo.first_name}`}</ListGroupItem>
+        <ListGroup className="list-group-flush text-dark">
+          <ListGroupItem action href={`https://www.instagram.com/kayadawg/`} className="list-group">{`Artist Name: ${artistInfo.first_name}`}</ListGroupItem>
+          <ListGroupItem action href={`http://www.google.com/maps/place/${photoCard.location}`} className="list-group">{`City: ${photoCard.location}`}</ListGroupItem>
+          <ListGroupItem action href={`https://www.yelp.com/search?find_desc=${shopInfo.name}`} className="list-group">{`Shop Name: ${shopInfo.name}`}</ListGroupItem>
         </ListGroup>
         {/* <Card.Body>
           <Card.Link href="#">Like</Card.Link>
