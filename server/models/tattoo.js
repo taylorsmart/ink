@@ -17,6 +17,36 @@ const queries = {
         callback(null,res);
       }
     })
+  },
+  getShop: (id, callback) => {
+    console.log(`Executing Shop fetch for id ${id}`)
+    client.query(
+        `SELECT \
+          * \
+          from shop_meta as sm\
+          where sm.id =$1;`
+        ,[id] , (err, res) => {
+      if (err) {
+        callback(err,null);
+      } else {
+        callback(null,res);
+      }
+    })
+  },
+  getArtist: (id, callback) => {
+    console.log(`Executing Artist fetch for id ${id}`)
+    client.query(
+        `SELECT \
+          * \
+          from artist_meta as am\
+          where am.id =$1;`
+        ,[id] , (err, res) => {
+      if (err) {
+        callback(err,null);
+      } else {
+        callback(null,res);
+      }
+    })
   }
 }
 

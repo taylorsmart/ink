@@ -2,6 +2,7 @@ const objectstocsv = require('objects-to-csv');
 const fs = require('fs');
 const faker = require('faker');
 const { isCaseOrDefaultClause } = require('typescript');
+const clDummyData = require('./database/cloudinary/dummyData.js')
 
 
 //Set the rows to generate
@@ -13,6 +14,16 @@ const genColor = () => {
   return randomColor
 }
 
+//Gather Photo URLs from Cloudery Dummydata (created to not abuse free fetching)
+const resultArray = clDummyData.resources;
+
+//Tranform Data
+const arrayLength = resultArray.length;
+let urlArray = []
+for (let i = 0; i < arrayLength; i++) {
+  urlArray.push(resultArray[i].url); //This is used later to define the url
+}
+console.log(urlArray)
 /* Data Load
 npm run create-db
 npm run fake-data
@@ -262,13 +273,18 @@ csv.toDisk('./dummyData/artist_meta.csv');
 // **************************************************************
 
 var data = [];
-
-for(var i=0;i<rows;i++){
+let j = 0;
+for(var i=0;i<rows;i++){ //allows for generating photos greater than the number of photos in dummy data
+  if(j < 12) {
+    j++ 
+  } else {
+    j = 0
+  } 
     data.push(
         {
           id:i,
           name:faker.lorem.words(),
-          url: "www.taylorkentsmart.com",
+          url: urlArray[j],
           story:faker.lorem.paragraph(),
           location:faker.address.city(),
           hours_to_ink:faker.datatype.number(),
