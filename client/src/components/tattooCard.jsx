@@ -90,9 +90,9 @@ const TattooCard = ({ tattooId }) => {
           </Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush text-dark">
-          <ListGroupItem action href={`https://www.instagram.com/kayadawg/`} className="list-group">{`Artist Name: ${artistInfo.first_name}`}</ListGroupItem>
-          <ListGroupItem action href={`http://www.google.com/maps/place/${photoCard.location}`} className="list-group">{`City: ${photoCard.location}`}</ListGroupItem>
-          <ListGroupItem action href={`https://www.yelp.com/search?find_desc=${shopInfo.name}`} className="list-group">{`Shop Name: ${shopInfo.name}`}</ListGroupItem>
+          <ListGroupItem action target="_blank" rel="noopener noreferrer" href={`https://www.instagram.com/kayadawg/`} className="list-group">{`Artist Name: ${artistInfo.first_name}`}</ListGroupItem>
+          <ListGroupItem action target="_blank" rel="noopener noreferrer" href={`http://www.google.com/maps/place/${photoCard.location}`} className="list-group">{`City: ${photoCard.location}`}</ListGroupItem>
+          <ListGroupItem action target="_blank" rel="noopener noreferrer" href={`https://www.yelp.com/search?find_desc=${shopInfo.name}`} className="list-group">{`Shop Name: ${shopInfo.name}`}</ListGroupItem>
         </ListGroup>
         {/* <Card.Body>
           <Card.Link href="#">Like</Card.Link>
